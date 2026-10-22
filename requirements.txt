@@ -1,0 +1,62 @@
+# ============================================================
+# CyberNetAnalyzer — Python dependencies
+# ============================================================
+#
+# Minimum Python version: 3.10
+#
+# ------------------------------------------------------------
+# REQUIRED — Python standard library (no installation needed)
+# ------------------------------------------------------------
+#
+#   socket               — TCP port scanning & banner grabbing
+#   ipaddress            — CIDR / IP range parsing
+#   subprocess           — ICMP ping (ping.exe / ping)
+#   concurrent.futures   — multi-threaded port scanning
+#   platform             — OS detection (ping flag differences)
+#   time                 — scan timing
+#   csv                  — CSV report export
+#   datetime             — report timestamps
+#   os / sys / pathlib   — file paths and report output
+#   threading            — background scan / capture threads
+#   tkinter              — GUI (included with CPython on all platforms)
+#   tkinter.ttk          — themed widgets (Treeview, Notebook, …)
+#   tkinter.scrolledtext — scrollable log / report boxes
+#   tkinter.messagebox   — error / info dialogs
+#   tkinter.filedialog   — open/save file chooser
+#   dataclasses          — PortResult / HostResult / TrafficSummary
+#   typing               — type hints
+#   collections          — Counter (traffic analysis)
+#
+# All of the above ship with CPython 3.10+ and require no pip install.
+# On some minimal Linux distributions tkinter is packaged separately:
+#   Debian/Ubuntu:  sudo apt install python3-tk
+#   Fedora/RHEL:    sudo dnf install python3-tkinter
+#   Arch:           sudo pacman -S tk
+#
+# ------------------------------------------------------------
+# OPTIONAL — required only for the Traffic Analysis tab
+# ------------------------------------------------------------
+
+scapy>=2.5.0
+
+# Scapy enables:
+#   • Live packet capture (sniff)
+#   • .pcap / .pcapng file analysis
+#   • Network interface enumeration
+#
+# Install:
+#   pip install scapy
+#
+# Windows — Npcap is also required for live capture:
+#   Download and install from https://npcap.com BEFORE installing scapy.
+#   During install, check "Install Npcap in WinPcap API-compatible mode".
+#
+# Linux — live capture needs raw-socket permissions:
+#   Option A (run as root):      sudo python app.py
+#   Option B (grant capability): sudo setcap cap_net_raw+eip $(which python3)
+#
+# macOS — live capture needs root or a BPF device rule:
+#   sudo python app.py
+#
+# Without scapy, all scan and reporting features remain fully functional;
+# only the Traffic Analysis tab (pcap / live capture) will be unavailable.
